@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা - কম্পিউটার ট্রেনিং সেন্টার</title>
+<style>
+*{box-sizing:border-box;font-family:'Hind Siliguri',Arial}body{margin:0;background:#eef2f7}
+header{background:#0b3d91;color:#fff;padding:16px;text-align:center}header h1{margin:0;font-size:22px}
+.wrap{max-width:1000px;margin:auto;padding:14px}.card{background:#fff;padding:18px;border-radius:14px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+input,select,button{padding:12px;border-radius:10px;border:1px solid #ddd;width:100%;margin-top:8px;font-size:16px}
+button{background:#0b3d91;color:#fff;font-weight:bold;cursor:pointer;border:none}
+.flex{display:flex;gap:10px}.flex>*{flex:1}
+#target{background:#f0f4ff;padding:16px;font-size:22px;border-radius:10px;border:2px dashed #0b3d91;line-height:1.8}
+#input{height:90px;font-size:20px}
+.kb{display:flex;flex-direction:column;gap:6px;margin-top:12px}.row{display:flex;gap:5px;justify-content:center}
+.key{padding:12px 0;width:52px;text-align:center;border-radius:8px;font-weight:bold;color:#fff;font-size:14px}
+.pinky{background:#e91e63}.ring{background:#ff9800}.middle{background:#4caf50}.indexL{background:#2196f3}.indexR{background:#9c27b0}.thumb{background:#607d8b}.space{width:220px}
+.hands{display:flex;justify-content:space-between;text-align:center;font-size:14px}.hands b{font-size:26px}
+.stat{display:flex;gap:10px;text-align:center}.stat div{flex:1;background:#fff3e0;padding:12px;border-radius:10px}.stat b{font-size:22px;display:block}
+.hidden{display:none}
+</style></head><body>
+<header><h1>🇧🇩 আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা</h1><p>কম্পিউটার ট্রেনিং সেন্টার | টাইপিং মাস্টার - কিবোর্ড দিয়ে প্র্যাকটিস</p></header>
+<div class="wrap">
+<div class="card" id="loginCard"><h2>🔐 সদস্য লগইন</h2><p style="color:#666">মোবাইল নম্বর দাও, পাসওয়ার্ড স্যার দিয়ে দিবে।</p>
+<input id="mobile" placeholder="মোবাইল নম্বর - 01XXXXXXXXX"><input id="pass" type="password" placeholder="পাসওয়ার্ড (স্যারের দেওয়া)">
+<button onclick="login()">লগইন করো</button><p style="font-size:13px">ডেমো পাসওয়ার্ড: <b>1234</b> - পরে তুমি নিজে চেঞ্জ করতে পারবা</p></div>
+
+<div id="app" class="hidden">
+<div class="card"><h2 id="welcome">স্বাগতম!</h2>
+<div class="flex"><button onclick="setLang('en')">English A-Z</button><button onclick="setLang('bn')" style="background:#009688">বাংলা A-Z</button></div>
+<select id="lesson" onchange="newLesson()"><option value="home">Home Row - ASDF JKL;</option><option value="top">Top Row - QWERTY</option><option value="bottom">Bottom Row - ZXCV</option><option value="all">Full A-Z প্র্যাকটিস</option></select>
+</div>
+
+<div class="card"><h3>🖐️ কোন আঙুল দিয়ে কোন অক্ষর?</h3>
+<div class="hands"><div>👈 বাম হাত<br><b>🤚</b><br><span style="color:#e91e63">● কনিষ্ঠা: Q A Z</span><br><span style="color:#ff9800">● অনামিকা: W S X</span><br><span style="color:#4caf50">● মধ্যমা: E D C</span><br><span style="color:#2196f3">● তর্জনী: R T F G V B</span></div>
+<div>ডান হাত 👉<br><b>🤚</b><br><span style="color:#9c27b0">● তর্জনী: Y U H J N M</span><br><span style="color:#4caf50">● মধ্যমা: I K ,</span><br><span style="color:#ff9800">● অনামিকা: O L .</span><br><span style="color:#e91e63">● কনিষ্ঠা: P ; /</span></div></div>
+<div class="kb">
+<div class="row"><span class="key pinky">Q</span><span class="key ring">W</span><span class="key middle">E</span><span class="key indexL">R</span><span class="key indexL">T</span><span class="key indexR">Y</span><span class="key indexR">U</span><span class="key middle">I</span><span class="key ring">O</span><span class="key pinky">P</span></div>
+<div class="row"><span class="key pinky">A</span><span class="key ring">S</span><span class="key middle">D</span><span class="key indexL">F</span><span class="key indexL">G</span><span class="key indexR">H</span><span class="key indexR">J</span><span class="key middle">K</span><span class="key ring">L</span><span class="key pinky">;</span></div>
+<div class="row"><span class="key pinky">Z</span><span class="key ring">X</span><span class="key middle">C</span><span class="key indexL">V</span><span class="key indexL">B</span><span class="key indexR">N</span><span class="key indexR">M</span><span class="key middle">,</span><span class="key ring">.</span><span class="key pinky">/</span></div>
+<div class="row"><span class="key thumb space">SPACE - বুড়ো আঙুল</span></div>
+</div><p>👉 <b>F</b> আর <b>J</b> তে আঙুল রাখো, এখানে উঁচু দাগ আছে। কিবোর্ডের দিকে তাকাবা না!</p></div>
+
+<div class="card"><div id="target"></div><textarea id="input" placeholder="ল্যাপটপ / কম্পিউটার কিবোর্ড দিয়ে এখানে টাইপ করো..." oninput="check()"></textarea>
+<div class="stat" style="margin-top:10px"><div><b id="wpm">0</b>WPM</div><div><b id="acc">100%</b>Accuracy</div><div><b id="tm">0s</b>Time</div></div>
+<button onclick="newLesson()" style="background:#4caf50;margin-top:10px">🔄 নতুন লেসন</button><p id="res" style="font-weight:bold"></p></div>
+</div></div>
+<script>
+let lang='en',st=null,timer=null;
+const L={en:{home:"asdf jkl; asdf jkl; ask dad fall",top:"qwerty qwerty type writer",bottom:"zxcv zxcv box van",all:"The quick brown fox jumps over the lazy dog"},
+bn:{home:"ক খ গ ঘ ক খ গ ঘ আমি ভালো",top:"বাংলা টাইপ শিখি প্রতিদিন",bottom:"আনসার ভিডিপি ঢাকা",all:"আমার সোনার বাংলা আমি তোমায় ভালোবাসি"}};
+function login(){let m=document.getElementById('mobile').value;let p=document.getElementById('pass').value;if(m.length<11||p!='1234'){alert('মোবাইল ১১ ডিজিট + পাসওয়ার্ড 1234 দাও (ডেমো)');return;}document.getElementById('loginCard').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('welcome').innerText='স্বাগতম, '+m+' 👋';newLesson();}
+function setLang(l){lang=l;newLesson();}
+function newLesson(){document.getElementById('target').innerText=L[lang][document.getElementById('lesson').value];document.getElementById('input').value='';st=null;clearInterval(timer);document.getElementById('wpm').innerText='0';document.getElementById('res').innerText='';document.getElementById('input').focus();}
+function check(){let t=document.getElementById('target').innerText;let v=document.getElementById('input').value;if(!st){st=Date.now();timer=setInterval(()=>{document.getElementById('tm').innerText=Math.floor((Date.now()-st)/1000)+'s'},1000);}let c=0;for(let i=0;i<v.length;i++)if(v[i]==t[i])c++;let acc=v.length?Math.round(c/v.length*100):100;let wpm=Math.round((c/5)/((Date.now()-st)/60000||0.01));document.getElementById('acc').innerText=acc+'%';document.getElementById('wpm').innerText=wpm;if(v.length>=t.length){clearInterval(timer);document.getElementById('res').innerText='🎉 শেষ! স্পিড '+wpm+' WPM, Accuracy '+acc+'%';}}
+</script></body></html>
