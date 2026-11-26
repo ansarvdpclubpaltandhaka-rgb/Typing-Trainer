@@ -23,20 +23,28 @@
 .finger small{font-size:10px;line-height:1.2;margin-top:6px;font-weight:bold}.finger.press{transform:translateY(20px) scaleY(.82);background:#ffcc80;box-shadow:0 0 18px orange}
 .leader{margin-top:14px;background:#fff3cd;padding:12px;border-radius:10px}
 .btn{padding:11px 18px;border:none;border-radius:10px;background:#0b3d91;color:#fff;font-weight:bold;cursor:pointer;margin:4px}.btn.g{background:#0a9d00}.btn.o{background:#ff9800}
-/* === শুধু সার্টিফিকেটটা নতুন - অফিসিয়াল === */
-.cert{display:none;background:#fffdf5;border:8px double #b8860b;outline:3px solid #0b3d91;outline-offset:-14px;padding:38px 30px 25px;text-align:center;position:relative;margin-top:18px}
-.cert-top{font-size:12px;letter-spacing:3px;color:#0b3d91;font-weight:900}
-.cert h1{font-size:38px;color:#b8860b;margin:8px 0 2px;letter-spacing:2px}
-.cert h2{font-size:16px;color:#333;margin:0}
-.cert-name{font-size:36px;font-weight:900;color:#0b3d91;border-bottom:2px solid #b8860b;display:inline-block;padding:0 30px;margin:18px 0 10px;text-transform:capitalize}
-.cert-desc{font-size:16px;line-height:1.7;color:#444}
-.cert-box{display:flex;gap:10px;justify-content:center;margin:16px 0;flex-wrap:wrap}
-.cert-box div{border:1px solid #b8860b;padding:10px 18px;border-radius:10px;background:#fff8dc}
-.cert-box b{font-size:22px;color:#0b3d91}
-.cert-sign{display:flex;justify-content:space-between;margin-top:30px;padding:0 20px;gap:10px}
-.cert-sign div{text-align:center;font-size:13px;border-top:2px solid #333;padding-top:6px;min-width:150px}
-.seal{width:92px;height:92px;border:3px double #b8860b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#b8860b;transform:rotate(-12deg);position:absolute;right:28px;bottom:72px;background:#fff8dc;line-height:1.3}
-@media print{body *{visibility:hidden}.cert,.cert *{visibility:visible}.cert{position:absolute;left:0;top:0;width:100%;display:block!important}}
+/* === শুধু সার্টিফিকেটটা নতুন - ইউনিক ডিজাইন === */
+.cert{display:none;margin-top:18px;background:#fff;display:flex;overflow:hidden;border:3px solid #0b3d91;box-shadow:0 8px 25px rgba(0,0,0,.15);text-align:left}
+.cert-left{width:32%;background:#0b3d91;color:#fff;padding:28px 20px;min-width:220px}
+.cert-left h3{font-size:20px;line-height:1.4;margin:5px 0}
+.cert-left p{font-size:13px;line-height:1.7;opacity:.92}
+.cert-gold{width:55px;height:4px;background:#d4af37;margin:14px 0}
+.cert-qr{width:105px;height:105px;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;text-align:center;border:4px solid #d4af37;margin-top:16px;line-height:1.4}
+.cert-right{flex:1;padding:28px 28px 22px;position:relative}
+.cert-right .toprow{display:flex;justify-content:space-between;font-size:11px;letter-spacing:1px;color:#888}
+.cert-right h1{font-size:36px;color:#0b3d91;margin:10px 0 0;line-height:1.05}
+.cert-right h1 span{color:#d4af37}
+.cert-right h2{font-size:13px;letter-spacing:3px;color:#666;margin:4px 0}
+.cert-name{font-size:32px;font-weight:900;color:#111;border-bottom:3px solid #d4af37;display:inline-block;padding-bottom:4px;margin:16px 0 8px;text-transform:capitalize}
+.cert-desc{font-size:14px;line-height:1.7;color:#444}
+.cert-box{display:flex;gap:10px;margin:16px 0}
+.cert-box div{flex:1;border:1px solid #ddd;border-top:4px solid #d4af37;padding:10px;text-align:center;background:#fff8dc}
+.cert-box b{font-size:20px;color:#0b3d91}
+.cert-meta{font-size:12px;color:#666}
+.cert-sign{display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px;gap:10px}
+.cert-sign div{text-align:center;font-size:12px;border-top:2px solid #333;padding-top:6px;min-width:140px}
+.seal{width:88px;height:88px;border:3px double #b8860b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#b8860b;transform:rotate(-12deg);background:#fff8dc;line-height:1.3;text-align:center}
+.ribbon{position:absolute;top:0;right:0;background:#d4af37;color:#000;font-size:11px;font-weight:900;padding:7px 12px}
 </style></head><body>
 <div class="top">আনসার ও ভিডিপি ক্লাব পল্টন, ঢাকা<small>🎯 লাইভ টাইপিং ট্রেইনার - হাত সহ লাইভ কিবোর্ড</small></div>
 <div class="tabs">
@@ -63,27 +71,36 @@
 <div style="text-align:center;font-weight:bold">👆 A চাপলে বাম হাতের আঙ্গুল A তে যাবে, X চাপলে X তে যাবে - একদম লাইভ</div>
 <div class="leader"><b>🏆 লিডারবোর্ড - টপ ৫</b><div id="board">এখনো কেউ খেলেনি। তুমিই প্রথম হও!</div></div>
 <div class="cert" id="cert">
-  <div class="cert-top">আনসার ও ভিডিপি • বাংলাদেশ</div>
-  <div style="font-size:14px;font-weight:900;margin-top:6px">আনসার ও ভিডিপি ক্লাব পল্টন, ঢাকা</div>
-  <div style="font-size:12px;color:#666">Ansar & VDP Club Paltan, Dhaka | Typing Training Program</div>
-  <h1>🏆 CERTIFICATE</h1>
-  <h2>OF ACHIEVEMENT • TYPING MASTERY</h2>
-  <div style="color:#b8860b;margin-top:8px">✦ ✦ ✦</div>
-  <div style="font-size:15px;margin-top:10px">This certificate is proudly presented to</div>
-  <div class="cert-name" id="certName">MD Ruhul Amin</div>
-  <div class="cert-desc" id="certText">For successfully completing the Typing Training Course<br>with excellent speed and accuracy.</div>
-  <div class="cert-box">
-    <div>⚡ SPEED<br><b id="certWpm">0 WPM</b></div>
-    <div>🎯 ACCURACY<br><b id="certAcc">100%</b></div>
-    <div>📚 LESSON<br><b>10 / 10 Complete</b></div>
+  <div class="cert-left">
+    <div style="font-size:30px">🏆</div>
+    <h3>আনসার ও<br>ভিডিপি ক্লাব<br>পল্টন, ঢাকা</h3>
+    <div class="cert-gold"></div>
+    <p>Ansar & VDP Club<br>Paltan, Dhaka<br>Bangladesh</p>
+    <p>Typing Training<br>Program 2026<br>Official Certificate</p>
+    <div class="cert-qr">QR CODE<br>✓ VERIFIED<br>AVP-2026</div>
+    <p style="font-size:11px;margin-top:8px">Scan to Verify</p>
   </div>
-  <div style="font-size:12px;color:#666">Certificate No: <b id="certNo">AVP-2026-001</b> &nbsp;|&nbsp; Date: <b id="certDate"></b> &nbsp;|&nbsp; Verified by Ansar & VDP Club Paltan, Dhaka</div>
-  <div class="seal">✓ VERIFIED<br>ANSAR & VDP<br>PALTAN, DHAKA</div>
-  <div class="cert-sign">
-    <div>প্রশিক্ষক<br><b>Instructor</b><br>Typing Trainer</div>
-    <div>ক্লাব কমান্ডার<br><b>Club Commander</b><br>Ansar & VDP Club Paltan</div>
+  <div class="cert-right">
+    <div class="ribbon">★ TOP PERFORMER</div>
+    <div class="toprow"><span>Certificate No: <b id="certNo">AVP-2026-001</b></span><span>Date: <b id="certDate"></b></span></div>
+    <h1>CERTIFICATE <span>OF</span><br>EXCELLENCE</h1>
+    <h2>TYPING MASTERY • 2026</h2>
+    <div style="font-size:13px;color:#888;margin-top:12px">Proudly Presented To</div>
+    <div class="cert-name" id="certName">MD Ruhul Amin</div>
+    <div class="cert-desc" id="certText">For successfully completing the Typing Training Course<br>with excellent speed and accuracy.</div>
+    <div class="cert-box">
+      <div>⚡ SPEED<br><b id="certWpm">0 WPM</b></div>
+      <div>🎯 ACCURACY<br><b id="certAcc">100%</b></div>
+      <div>📚 LESSON<br><b>10 / 10 Complete</b></div>
+    </div>
+    <div class="cert-meta">Verified by Ansar & VDP Club Paltan, Dhaka • Grade: <b style="color:#b8860b">A+</b></div>
+    <div class="cert-sign">
+      <div>প্রশিক্ষক<br><b>Instructor</b><br>Typing Trainer</div>
+      <div class="seal">✓ VERIFIED<br>ANSAR & VDP<br>PALTAN, DHAKA</div>
+      <div>ক্লাব কমান্ডার<br><b>Club Commander</b><br>Ansar & VDP Club Paltan</div>
+    </div>
+    <center><br><button class="btn g" onclick="printUniqueCert()">🖨️ ইউনিক সার্টিফিকেট প্রিন্ট করো</button></center>
   </div>
-  <br><button class="btn g" onclick="window.print()">🖨️ অফিসিয়াল সার্টিফিকেট প্রিন্ট করো</button>
 </div>
 </div>
 <script>
@@ -101,7 +118,17 @@ function newLesson(){let arr=mode=='en'?enLessons:bnLessons;lesson=arr[(lessonId
 function nextLesson(){if(lessonIdx<10)lessonIdx++;newLesson();}function prevLesson(){if(lessonIdx>1)lessonIdx--;newLesson();}
 function render(){let el=document.getElementById('textToType');el.innerHTML='';[...lesson].forEach((ch,i)=>{let s=document.createElement('span');s.innerText=ch;let v=document.getElementById('inputBox').value;if(i<pos)s.className=v[i]===lesson[i]?'ok':'bad';if(i===pos)s.className='active';el.appendChild(s);});document.querySelectorAll('.key').forEach(k=>k.classList.remove('next'));let nxt=lesson[pos]?.toLowerCase();if(nxt){let e=document.querySelector(`.key[data-key="${nxt}"]`);if(e)e.classList.add('next');}}
 document.getElementById('inputBox').addEventListener('input',()=>{let v=document.getElementById('inputBox').value;if(!start){start=Date.now();timer=setInterval(()=>{let t=Math.floor((Date.now()-start)/1000);document.getElementById('time').innerText=t;if(examSec){examLeft=examSec-t;if(examLeft<=0){clearInterval(timer);finishExam();}}},1000);}pos=v.length;total=v.length;correct=[...v].filter((c,i)=>c===lesson[i]).length;let mins=(Date.now()-start)/60000||0.01;document.getElementById('wpm').innerText=Math.round((correct/5)/mins);document.getElementById('acc').innerText=total?Math.round(correct/total*100):100;render();if(pos>=lesson.length){finishExam();}});
-function finishExam(){clearInterval(timer);let w=document.getElementById('wpm').innerText;let a=document.getElementById('acc').innerText;let name=document.getElementById('userName').value||'সদস্য';let board=document.getElementById('board');board.innerHTML=`🥇 ${name} - ${w} WPM - ${a}% সঠিক`;let cert=document.getElementById('cert');cert.style.display='block';document.getElementById('certName').innerText=name;document.getElementById('certText').innerText=`${name} has successfully completed the Typing Training Course of Ansar & VDP Club Paltan, Dhaka with ${w} WPM speed and ${a}% accuracy. Congratulations!`;document.getElementById('certWpm').innerText=w+' WPM';document.getElementById('certAcc').innerText=a+'%';document.getElementById('certNo').innerText='AVP-2026-'+Math.floor(100+Math.random()*900);document.getElementById('certDate').innerText=new Date().toLocaleDateString('en-GB');alert('🎉 লেসন শেষ! WPM: '+w+' | সঠিক: '+a+'%');}
+function finishExam(){clearInterval(timer);let w=document.getElementById('wpm').innerText;let a=document.getElementById('acc').innerText;let name=document.getElementById('userName').value||'সদস্য';let board=document.getElementById('board');board.innerHTML=`🥇 ${name} - ${w} WPM - ${a}% সঠিক`;let cert=document.getElementById('cert');cert.style.display='flex';document.getElementById('certName').innerText=name;document.getElementById('certText').innerText=`${name} has successfully completed the Typing Training Course of Ansar & VDP Club Paltan, Dhaka with ${w} WPM speed and ${a}% accuracy. Congratulations!`;document.getElementById('certWpm').innerText=w+' WPM';document.getElementById('certAcc').innerText=a+'%';document.getElementById('certNo').innerText='AVP-2026-'+Math.floor(100+Math.random()*900);document.getElementById('certDate').innerText=new Date().toLocaleDateString('en-GB');alert('🎉 লেসন শেষ! WPM: '+w+' | সঠিক: '+a+'%');}
+function printUniqueCert(){
+  let name=document.getElementById('certName').innerText||document.getElementById('userName').value||'Ruhul Amin';
+  let w=document.getElementById('certWpm').innerText||document.getElementById('wpm').innerText+' WPM';
+  let a=document.getElementById('certAcc').innerText||document.getElementById('acc').innerText+'%';
+  let no=document.getElementById('certNo').innerText;
+  let dt=document.getElementById('certDate').innerText||new Date().toLocaleDateString('en-GB');
+  let win=window.open('','','width=950,height=680');
+  win.document.write(`<html><head><title>Certificate - ${name}</title><style>*{box-sizing:border-box}body{margin:0;background:#eee;display:flex;justify-content:center;padding:20px;font-family:Arial}@media print{body{background:#fff;padding:0}button{display:none}} .paper{width:900px;background:#fff;display:flex;overflow:hidden;border:3px solid #0b3d91} .left{width:32%;background:#0b3d91;color:#fff;padding:35px 25px} .left h3{font-size:22px;line-height:1.4} .gold{width:55px;height:4px;background:#d4af37;margin:14px 0} .qr{width:105px;height:105px;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;text-align:center;border:4px solid #d4af37;margin-top:16px} .right{flex:1;padding:35px;position:relative} .title{font-size:42px;font-weight:900;color:#0b3d91;margin:10px 0 0} .title span{color:#d4af37} .name{font-size:34px;font-weight:900;border-bottom:3px solid #d4af37;display:inline-block;margin:18px 0 8px} .scores{display:flex;gap:12px;margin:18px 0} .scores div{flex:1;border:1px solid #ddd;border-top:4px solid #d4af37;padding:12px;text-align:center;background:#fff8dc} .scores b{font-size:24px;color:#0b3d91} .footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:25px} .sig{border-top:2px solid #111;padding-top:8px;min-width:160px;text-align:center;font-size:12px} .seal{width:90px;height:90px;border:3px double #b8860b;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;font-weight:900;color:#b8860b;transform:rotate(-12deg);background:#fff8dc} .ribbon{position:absolute;top:0;right:0;background:#d4af37;font-size:11px;font-weight:900;padding:7px 12px}</style></head><body><div class="paper"><div class="left"><div style="font-size:30px">🏆</div><h3>আনসার ও<br>ভিডিপি ক্লাব<br>পল্টন, ঢাকা</h3><div class="gold"></div><p>Ansar & VDP Club<br>Paltan, Dhaka<br>Bangladesh<br><br>Typing Training<br>Program 2026</p><div class="qr">QR CODE<br>✓ VERIFIED<br>AVP-2026</div></div><div class="right"><div class="ribbon">★ TOP PERFORMER</div><div style="display:flex;justify-content:space-between;font-size:11px;color:#888"><span>Certificate No: ${no}</span><span>Date: ${dt}</span></div><div class="title">CERTIFICATE <span>OF</span><br>EXCELLENCE</div><div style="letter-spacing:3px;color:#666;font-size:13px">TYPING MASTERY • 2026</div><div style="margin-top:12px;color:#888;font-size:13px">Proudly Presented To</div><div class="name">${name}</div><div style="color:#444;line-height:1.7;font-size:14px">For successfully completing the Typing Training Course of <b>Ansar & VDP Club Paltan, Dhaka</b> with outstanding speed, accuracy and dedication.</div><div class="scores"><div>SPEED<br><b>${w}</b></div><div>ACCURACY<br><b>${a}</b></div><div>GRADE<br><b style="color:#d4af37">A+</b></div></div><div class="footer"><div class="sig">প্রশিক্ষক<br><b>Instructor</b></div><div class="seal">✓ VERIFIED<br>ANSAR & VDP<br>PALTAN</div><div class="sig">ক্লাব কমান্ডার<br><b>Club Commander</b></div></div></div></div><center><button onclick="window.print()" style="margin:20px;padding:12px 25px;background:#0a9d00;color:#fff;border:none;border-radius:8px;font-weight:bold;cursor:pointer">🖨️ প্রিন্ট করো</button></center></body></html>`);
+  win.document.close();
+}
 document.addEventListener('keydown',(e)=>{let k=e.key.toLowerCase();let el=document.querySelector(`.key[data-key="${k}"]`);if(el){el.classList.add('hit');setTimeout(()=>el.classList.remove('hit'),200);}let f=fingerMap[k];if(f){let fe=document.getElementById('finger-'+f);if(fe){fe.classList.add('press');setTimeout(()=>fe.classList.remove('press'),220);}}});
 buildHands();newLesson();
 </script></body></html>
