@@ -1,54 +1,130 @@
 <!DOCTYPE html>
-<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা - কম্পিউটার ট্রেনিং সেন্টার</title>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা - Typing Trainer</title>
 <style>
-*{box-sizing:border-box;font-family:'Hind Siliguri',Arial}body{margin:0;background:#eef2f7}
-header{background:#0b3d91;color:#fff;padding:16px;text-align:center}header h1{margin:0;font-size:22px}
-.wrap{max-width:1000px;margin:auto;padding:14px}.card{background:#fff;padding:18px;border-radius:14px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
-input,select,button{padding:12px;border-radius:10px;border:1px solid #ddd;width:100%;margin-top:8px;font-size:16px}
-button{background:#0b3d91;color:#fff;font-weight:bold;cursor:pointer;border:none}
-.flex{display:flex;gap:10px}.flex>*{flex:1}
-#target{background:#f0f4ff;padding:16px;font-size:22px;border-radius:10px;border:2px dashed #0b3d91;line-height:1.8}
-#input{height:90px;font-size:20px}
-.kb{display:flex;flex-direction:column;gap:6px;margin-top:12px}.row{display:flex;gap:5px;justify-content:center}
-.key{padding:12px 0;width:52px;text-align:center;border-radius:8px;font-weight:bold;color:#fff;font-size:14px}
-.pinky{background:#e91e63}.ring{background:#ff9800}.middle{background:#4caf50}.indexL{background:#2196f3}.indexR{background:#9c27b0}.thumb{background:#607d8b}.space{width:220px}
-.hands{display:flex;justify-content:space-between;text-align:center;font-size:14px}.hands b{font-size:26px}
-.stat{display:flex;gap:10px;text-align:center}.stat div{flex:1;background:#fff3e0;padding:12px;border-radius:10px}.stat b{font-size:22px;display:block}
-.hidden{display:none}
-</style></head><body>
-<header><h1>🇧🇩 আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা</h1><p>কম্পিউটার ট্রেনিং সেন্টার | টাইপিং মাস্টার - কিবোর্ড দিয়ে প্র্যাকটিস</p></header>
+*{box-sizing:border-box;font-family:Hind Siliguri,Arial,sans-serif}
+body{margin:0;background:#f0f4f8}
+.top{background:#0b3d91;color:#fff;text-align:center;padding:12px;font-weight:bold;font-size:20px}
+.sub{background:#ffcc00;text-align:center;padding:6px;font-weight:bold}
+.wrap{max-width:900px;margin:15px auto;background:#fff;padding:20px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+#textToType{font-size:24px;line-height:1.8;letter-spacing:1px;min-height:110px;background:#fff8e1;padding:15px;border-radius:10px;border:2px dashed #ffb300}
+#textToType span{padding:2px 1px;border-radius:4px}
+#textToType span.active{background:#ffeb3b;border-bottom:3px solid #000}
+#textToType span.correct{color:#0a9d00;background:#d9ffd9}
+#textToType span.wrong{color:#fff;background:#ff3b30}
+#inputBox{width:100%;margin-top:12px;padding:14px;font-size:20px;border:2px solid #0b3d91;border-radius:10px;outline:none}
+.stats{display:flex;gap:10px;margin:12px 0}
+.stats div{flex:1;background:#e3f2fd;padding:10px;text-align:center;border-radius:10px;font-weight:bold}
+button{padding:12px 20px;border:none;border-radius:10px;background:#0b3d91;color:#fff;font-size:16px;font-weight:bold;cursor:pointer}
+button:active{transform:scale(.97)}
+/* KEYBOARD */
+.kb{margin-top:20px;position:relative;background:#e8eef5;padding:15px;border-radius:15px}
+.row{display:flex;gap:6px;justify-content:center;margin-bottom:6px}
+.key{flex:1;max-width:62px;height:58px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;color:#fff;background:#2196f3;border-bottom:4px solid rgba(0,0,0,.25);transition:.08s;user-select:none}
+.key.space{max-width:320px}
+.key[data-key="q"],.key[data-key="a"],.key[data-key="z"]{background:#4caf50}
+.key[data-key="w"],.key[data-key="s"],.key[data-key="x"]{background:#ff9800}
+.key[data-key="e"],.key[data-key="d"],.key[data-key="c"]{background:#f44336}
+.key[data-key="r"],.key[data-key="f"],.key[data-key="v"],.key[data-key="t"],.key[data-key="g"],.key[data-key="b"]{background:#ffca28;color:#000}
+.key[data-key="y"],.key[data-key="h"],.key[data-key="n"],.key[data-key="u"],.key[data-key="j"],.key[data-key="m"]{background:#00bcd4}
+.key[data-key="i"],.key[data-key="k"],.key[data-key=","]{background:#8bc34a}
+.key[data-key="o"],.key[data-key="l"],.key[data-key="."]{background:#ff7043}
+.key[data-key="p"],.key[data-key=";"],.key[data-key="/"]{background:#ab47bc}
+/* LIVE PRESS - কালো হবে না, হলুদ জ্বলবে */
+.key.hit{background:#ffeb00!important;color:#000!important;transform:translateY(4px) scale(.95);box-shadow:0 0 20px #ffeb00;border-bottom:1px solid #000}
+.key.next{outline:3px solid #000;outline-offset:2px;animation:blink .8s infinite}
+@keyframes blink{50%{outline-color:#ff9800}}
+/* FINGERS */
+.hands{position:relative;height:110px;margin-top:5px}
+.finger{position:absolute;bottom:0;width:52px;height:95px;background:#ffe0bd;border:3px solid #d9a066;border-bottom:none;border-radius:25px 25px 0 0;display:flex;align-items:flex-start;justify-content:center;font-size:28px;transition:.12s;z-index:2}
+.finger small{margin-top:8px;font-size:11px;font-weight:bold;color:#333}
+.finger.press{transform:translateY(18px) scaleY(.85);background:#ffcc80;box-shadow:0 0 15px orange}
+.hint{text-align:center;margin-top:8px;font-weight:bold;color:#555}
+</style>
+</head>
+<body>
+<div class="top">আনসার ও ভিডিপি ক্লাব প্লাটুন, ঢাকা</div>
+<div class="sub">🎯 লাইভ টাইপিং ট্রেইনার - আসল কিবোর্ড চাপো, স্ক্রিনের কিবোর্ড নড়বে</div>
 <div class="wrap">
-<div class="card" id="loginCard"><h2>🔐 সদস্য লগইন</h2><p style="color:#666">মোবাইল নম্বর দাও, পাসওয়ার্ড স্যার দিয়ে দিবে।</p>
-<input id="mobile" placeholder="মোবাইল নম্বর - 01XXXXXXXXX"><input id="pass" type="password" placeholder="পাসওয়ার্ড (স্যারের দেওয়া)">
-<button onclick="login()">লগইন করো</button><p style="font-size:13px">ডেমো পাসওয়ার্ড: <b>1234</b> - পরে তুমি নিজে চেঞ্জ করতে পারবা</p></div>
+<div id="textToType"></div>
+<input id="inputBox" placeholder="এখানে ক্লিক করে টাইপ শুরু করো..." autocomplete="off">
+<div class="stats"><div>⏱️ সময়: <span id="time">0</span>s</div><div>⚡ গতি: <span id="wpm">0</span> WPM</div><div>🎯 সঠিক: <span id="acc">100</span>%</div></div>
+<center><button onclick="newLesson()">🔄 নতুন লেসন</button> <button onclick="document.getElementById('inputBox').focus()">⌨️ টাইপ শুরু</button></center>
 
-<div id="app" class="hidden">
-<div class="card"><h2 id="welcome">স্বাগতম!</h2>
-<div class="flex"><button onclick="setLang('en')">English A-Z</button><button onclick="setLang('bn')" style="background:#009688">বাংলা A-Z</button></div>
-<select id="lesson" onchange="newLesson()"><option value="home">Home Row - ASDF JKL;</option><option value="top">Top Row - QWERTY</option><option value="bottom">Bottom Row - ZXCV</option><option value="all">Full A-Z প্র্যাকটিস</option></select>
+<div class="kb">
+<div class="row"><div class="key" data-key="`">`</div><div class="key" data-key="1">1</div><div class="key" data-key="2">2</div><div class="key" data-key="3">3</div><div class="key" data-key="4">4</div><div class="key" data-key="5">5</div><div class="key" data-key="6">6</div><div class="key" data-key="7">7</div><div class="key" data-key="8">8</div><div class="key" data-key="9">9</div><div class="key" data-key="0">0</div><div class="key" data-key="-">-</div><div class="key" data-key="=">=</div></div>
+<div class="row"><div class="key" data-key="q">Q</div><div class="key" data-key="w">W</div><div class="key" data-key="e">E</div><div class="key" data-key="r">R</div><div class="key" data-key="t">T</div><div class="key" data-key="y">Y</div><div class="key" data-key="u">U</div><div class="key" data-key="i">I</div><div class="key" data-key="o">O</div><div class="key" data-key="p">P</div><div class="key" data-key="[">[</div><div class="key" data-key="]">]</div></div>
+<div class="row"><div class="key" data-key="a">A</div><div class="key" data-key="s">S</div><div class="key" data-key="d">D</div><div class="key" data-key="f">F</div><div class="key" data-key="g">G</div><div class="key" data-key="h">H</div><div class="key" data-key="j">J</div><div class="key" data-key="k">K</div><div class="key" data-key="l">L</div><div class="key" data-key=";">;</div><div class="key" data-key="'">'</div></div>
+<div class="row"><div class="key" data-key="z">Z</div><div class="key" data-key="x">X</div><div class="key" data-key="c">C</div><div class="key" data-key="v">V</div><div class="key" data-key="b">B</div><div class="key" data-key="n">N</div><div class="key" data-key="m">M</div><div class="key" data-key=",">,</div><div class="key" data-key=".">.</div><div class="key" data-key="/">/</div></div>
+<div class="row"><div class="key space" data-key=" ">SPACE</div></div>
 </div>
 
-<div class="card"><h3>🖐️ কোন আঙুল দিয়ে কোন অক্ষর?</h3>
-<div class="hands"><div>👈 বাম হাত<br><b>🤚</b><br><span style="color:#e91e63">● কনিষ্ঠা: Q A Z</span><br><span style="color:#ff9800">● অনামিকা: W S X</span><br><span style="color:#4caf50">● মধ্যমা: E D C</span><br><span style="color:#2196f3">● তর্জনী: R T F G V B</span></div>
-<div>ডান হাত 👉<br><b>🤚</b><br><span style="color:#9c27b0">● তর্জনী: Y U H J N M</span><br><span style="color:#4caf50">● মধ্যমা: I K ,</span><br><span style="color:#ff9800">● অনামিকা: O L .</span><br><span style="color:#e91e63">● কনিষ্ঠা: P ; /</span></div></div>
-<div class="kb">
-<div class="row"><span class="key pinky">Q</span><span class="key ring">W</span><span class="key middle">E</span><span class="key indexL">R</span><span class="key indexL">T</span><span class="key indexR">Y</span><span class="key indexR">U</span><span class="key middle">I</span><span class="key ring">O</span><span class="key pinky">P</span></div>
-<div class="row"><span class="key pinky">A</span><span class="key ring">S</span><span class="key middle">D</span><span class="key indexL">F</span><span class="key indexL">G</span><span class="key indexR">H</span><span class="key indexR">J</span><span class="key middle">K</span><span class="key ring">L</span><span class="key pinky">;</span></div>
-<div class="row"><span class="key pinky">Z</span><span class="key ring">X</span><span class="key middle">C</span><span class="key indexL">V</span><span class="key indexL">B</span><span class="key indexR">N</span><span class="key indexR">M</span><span class="key middle">,</span><span class="key ring">.</span><span class="key pinky">/</span></div>
-<div class="row"><span class="key thumb space">SPACE - বুড়ো আঙুল</span></div>
-</div><p>👉 <b>F</b> আর <b>J</b> তে আঙুল রাখো, এখানে উঁচু দাগ আছে। কিবোর্ডের দিকে তাকাবা না!</p></div>
+<div class="hands" id="hands"></div>
+<div class="hint">👆 উপরের লেখা দেখে টাইপ করো - যেই বাটন চাপবা, ওই আঙ্গুলটা নিচে নামবে</div>
+</div>
 
-<div class="card"><div id="target"></div><textarea id="input" placeholder="ল্যাপটপ / কম্পিউটার কিবোর্ড দিয়ে এখানে টাইপ করো..." oninput="check()"></textarea>
-<div class="stat" style="margin-top:10px"><div><b id="wpm">0</b>WPM</div><div><b id="acc">100%</b>Accuracy</div><div><b id="tm">0s</b>Time</div></div>
-<button onclick="newLesson()" style="background:#4caf50;margin-top:10px">🔄 নতুন লেসন</button><p id="res" style="font-weight:bold"></p></div>
-</div></div>
 <script>
-let lang='en',st=null,timer=null;
-const L={en:{home:"asdf jkl; asdf jkl; ask dad fall",top:"qwerty qwerty type writer",bottom:"zxcv zxcv box van",all:"The quick brown fox jumps over the lazy dog"},
-bn:{home:"ক খ গ ঘ ক খ গ ঘ আমি ভালো",top:"বাংলা টাইপ শিখি প্রতিদিন",bottom:"আনসার ভিডিপি ঢাকা",all:"আমার সোনার বাংলা আমি তোমায় ভালোবাসি"}};
-function login(){let m=document.getElementById('mobile').value;let p=document.getElementById('pass').value;if(m.length<11||p!='1234'){alert('মোবাইল ১১ ডিজিট + পাসওয়ার্ড 1234 দাও (ডেমো)');return;}document.getElementById('loginCard').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('welcome').innerText='স্বাগতম, '+m+' 👋';newLesson();}
-function setLang(l){lang=l;newLesson();}
-function newLesson(){document.getElementById('target').innerText=L[lang][document.getElementById('lesson').value];document.getElementById('input').value='';st=null;clearInterval(timer);document.getElementById('wpm').innerText='0';document.getElementById('res').innerText='';document.getElementById('input').focus();}
-function check(){let t=document.getElementById('target').innerText;let v=document.getElementById('input').value;if(!st){st=Date.now();timer=setInterval(()=>{document.getElementById('tm').innerText=Math.floor((Date.now()-st)/1000)+'s'},1000);}let c=0;for(let i=0;i<v.length;i++)if(v[i]==t[i])c++;let acc=v.length?Math.round(c/v.length*100):100;let wpm=Math.round((c/5)/((Date.now()-st)/60000||0.01));document.getElementById('acc').innerText=acc+'%';document.getElementById('wpm').innerText=wpm;if(v.length>=t.length){clearInterval(timer);document.getElementById('res').innerText='🎉 শেষ! স্পিড '+wpm+' WPM, Accuracy '+acc+'%';}}
-</script></body></html>
+const lessons=["Congratulations on reaching the final lesson of Typing Jungle! Now that you have worked through this lesson plan,","Ansar VDP Club Platoon Dhaka typing practice for all members daily practice makes perfect","Practice typing every day to become fast and accurate in Bangla and English typing"];
+let lesson="",pos=0,startTime=null,timer=null,correct=0,total=0;
+const textEl=document.getElementById('textToType');
+const input=document.getElementById('inputBox');
+// Finger map - কোন অক্ষরে কোন আঙ্গুল
+const fingerMap={q:'L-Pinky',a:'L-Pinky',z:'L-Pinky',w:'L-Ring',s:'L-Ring',x:'L-Ring',e:'L-Middle',d:'L-Middle',c:'L-Middle',r:'L-Index',f:'L-Index',v:'L-Index',t:'L-Index',g:'L-Index',b:'L-Index',y:'R-Index',h:'R-Index',n:'R-Index',u:'R-Index',j:'R-Index',m:'R-Index',i:'R-Middle',k:'R-Middle',',':'R-Middle',o:'R-Ring',l:'R-Ring','.':'R-Ring',p:'R-Pinky',';':'R-Pinky','/':'R-Pinky',' ':'Thumb'};
+const fingers=['L-Pinky','L-Ring','L-Middle','L-Index','R-Index','R-Middle','R-Ring','R-Pinky'];
+const fingerIcons={'L-Pinky':'🖐️','L-Ring':'✋','L-Middle':'🖐️','L-Index':'👉','R-Index':'👈','R-Middle':'🖐️','R-Ring':'✋','R-Pinky':'🖐️'};
+function buildHands(){
+  const h=document.getElementById('hands');h.innerHTML='';
+  fingers.forEach((f,i)=>{
+    const d=document.createElement('div');d.className='finger';d.id='finger-'+f;
+    d.style.left=(2+i*12.2)+'%';
+    d.innerHTML=`<small>${f}<br>${fingerIcons[f]}</small>`;
+    h.appendChild(d);
+  });
+}
+function newLesson(){
+  lesson=lessons[Math.floor(Math.random()*lessons.length)];pos=0;correct=0;total=0;
+  input.value='';clearInterval(timer);startTime=null;document.getElementById('time').innerText='0';
+  render();input.focus();
+}
+function render(){
+  textEl.innerHTML='';
+  [...lesson].forEach((ch,i)=>{
+    const s=document.createElement('span');s.innerText=ch;
+    if(i<pos) s.className = input.value[i]===lesson[i]?'correct':'wrong';
+    if(i===pos) s.className='active';
+    textEl.appendChild(s);
+  });
+  // Next key highlight
+  document.querySelectorAll('.key').forEach(k=>k.classList.remove('next'));
+  const next=lesson[pos]?.toLowerCase();
+  if(next){const el=document.querySelector(`.key[data-key="${next===' '?' ':next}"]`);if(el) el.classList.add('next');}
+}
+input.addEventListener('input',()=>{
+  if(!startTime){startTime=Date.now();timer=setInterval(()=>{document.getElementById('time').innerText=Math.floor((Date.now()-startTime)/1000);},1000);}
+  const val=input.value;pos=val.length;total=val.length;
+  correct=[...val].filter((c,i)=>c===lesson[i]).length;
+  const mins=(Date.now()-startTime)/60000||0.01;
+  document.getElementById('wpm').innerText=Math.round((correct/5)/mins);
+  document.getElementById('acc').innerText=total?Math.round(correct/total*100):100;
+  render();
+  if(pos>=lesson.length){clearInterval(timer);alert('🎉 Congratulations! লেসন শেষ!');newLesson();}
+});
+// LIVE KEYBOARD - আসল কিবোর্ড চাপলে স্ক্রিনেরটা নড়বে
+document.addEventListener('keydown',(e)=>{
+  const k=e.key.toLowerCase();
+  const el=document.querySelector(`.key[data-key="${k}"]`);
+  if(el){el.classList.add('hit');setTimeout(()=>el.classList.remove('hit'),180);}
+  const f=fingerMap[k];
+  if(f){const fe=document.getElementById('finger-'+f);if(fe){fe.classList.add('press');setTimeout(()=>fe.classList.remove('press'),200);}}
+  // স্ক্রিনের কিবোর্ডে ক্লিক করলেও হবে
+});
+document.querySelectorAll('.key').forEach(el=>{
+  el.addEventListener('click',()=>{el.classList.add('hit');setTimeout(()=>el.classList.remove('hit'),180);input.focus();});
+});
+buildHands();newLesson();
+</script>
+</body>
+</html>
